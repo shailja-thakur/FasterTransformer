@@ -153,7 +153,7 @@ void GptJWeight<T>::loadModel(std::string dir_path)
     // FtCudaDataType model_file_type = getModelFileType(dir_path + "/config.ini");
     FtCudaDataType model_file_type = FtCudaDataType::FP32;  // only support FP32 now
     FT_CHECK(is_maintain_buffer == true);
-
+    printf('Model file path: ' + dir_path);
     loadWeightFromBin<T>(weights_ptr[0], {vocab_size_ * hidden_units_}, dir_path + "/model.wte.bin", model_file_type);
     loadWeightFromBin<T>(
         weights_ptr[1], {hidden_units_}, dir_path + "/model.final_layernorm.bias.bin", model_file_type);
